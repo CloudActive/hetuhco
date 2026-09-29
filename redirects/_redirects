@@ -1,0 +1,3 @@
+# Cloudflare Pages / Netlify style redirects. Used only if hetuh.co is hosted on a platform that reads this file
+# (copy it into public/ in that case). Keep in sync with cloudflare-bulk-redirects.csv.
+/index.html   /   301

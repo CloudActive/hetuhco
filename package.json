@@ -1,0 +1,31 @@
+{
+  "name": "hetuh-s4h-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Corporate website of Hetuh S4H Private Limited (hetuh.co)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "node scripts/check-confirms.mjs",
+    "build:review": "cross-env NEXT_PUBLIC_REVIEW=1 next build",
+    "postbuild:review": "cross-env NEXT_PUBLIC_REVIEW=1 node scripts/check-confirms.mjs",
+    "serve": "serve out",
+    "typecheck": "tsc --noEmit",
+    "confirms": "node scripts/list-confirms.mjs"
+  },
+  "dependencies": {
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "cross-env": "^10.0.0",
+    "serve": "^14.2.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.0"
+  }
+}

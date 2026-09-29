@@ -1,0 +1,2 @@
+source_url,target_url,status,include_subdomains,subpath_matching,preserve_query_string,preserve_path_suffix
+https://hetuh.co/index.html,https://hetuh.co/,301,false,false,false,false

@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0f172a;
+  --color-muted: #475569;
+  --color-accent: #1d4ed8;
+  --color-line: #e2e8f0;
+  --color-surface: #ffffff;
+  --color-canvas: #f8fafc;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 50;
+  background: var(--color-ink);
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+mark.confirm {
+  background: #fde68a;
+  color: #78350f;
+  padding: 0 0.2em;
+  border-radius: 0.2em;
+  font-weight: 600;
+}
+
+/* Legal document typography, kept small on purpose. */
+.legal h2 {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+.legal h3 {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.legal p {
+  margin-top: 1rem;
+  line-height: 1.75rem;
+}
+.legal ul,
+.legal ol {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+  line-height: 1.75rem;
+}
+.legal ul { list-style: disc outside; }
+.legal ol { list-style: decimal outside; }
+.legal li + li { margin-top: 0.5rem; }
+.legal a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal .table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.legal table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+.legal th,
+.legal td {
+  border: 1px solid var(--color-line);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.legal th {
+  background: var(--color-canvas);
+  font-weight: 600;
+}
+.legal dl {
+  margin-top: 1rem;
+  line-height: 1.75rem;
+}
+.legal dl > div + div { margin-top: 0.5rem; }
+.legal dt { font-weight: 600; }
+.legal address { font-style: normal; }
