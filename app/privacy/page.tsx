@@ -58,23 +58,21 @@ export default function CompanyPrivacyPage() {
           hetuh.co is a static informational website. It does not use cookies, analytics, advertising or tracking, and it does
           not have accounts or forms. Our hosting and content delivery providers process standard server logs (IP address,
           browser type, pages requested, timestamps) to serve the site and protect it from abuse; these logs are kept for a
-          short period for security purposes. <T>[CONFIRM: hosting/CDN providers and log retention period]</T>
+          limited period for security and operational purposes.
         </p>
 
         <h2 id="email">4. When you contact us</h2>
         <p>
           When you email {EMAILS.support}, {EMAILS.privacy} or {EMAILS.legal}, we process your email address, name and the
-          content of your message to respond to you and keep a record of the correspondence. We keep support and privacy
-          correspondence <T>[CONFIRM: correspondence retention period, e.g. for 2 years]</T> unless the law requires longer.
+          content of your message to respond to you and keep a record of the correspondence. We keep correspondence only for
+          as long as needed to handle your request and keep a record of it, unless the law requires longer.
         </p>
 
         <h2 id="apps">5. Personal data in our apps</h2>
         <p>
           In our apps we collect only the personal data needed to provide the features you use, such as account information,
-          the content you create, device and diagnostic data, and support communications. We do not sell personal data and do
-          not use it for advertising. <T>[CONFIRM: no advertising SDKs or data sales in any app]</T> The product-specific
-          policies linked in section 1 list the exact data, purposes, third-party processors, storage location and retention
-          for each app.
+          the content you create, device and diagnostic data, and support communications. The product-specific policies linked
+          in section 1 list the exact data, purposes, third-party processors, storage location and retention for each app.
         </p>
 
         <h2 id="legal-basis">6. Legal basis and consent</h2>
@@ -117,7 +115,7 @@ export default function CompanyPrivacyPage() {
 
         <h2 id="children">11. Children</h2>
         <p>
-          <T>{`Our website and apps are not directed at children and are intended for users aged ${LEGAL_DEFAULTS.minimumAge} and above.`}</T>{" "}
+          Our website and apps are not directed at children under {LEGAL_DEFAULTS.minimumAge}.{" "}
           We do not knowingly collect personal data from a child without verifiable parental consent as required by the DPDP
           Act. Contact <a href={`mailto:${EMAILS.privacy}`}>{EMAILS.privacy}</a> if you believe a child has provided us with data.
         </p>

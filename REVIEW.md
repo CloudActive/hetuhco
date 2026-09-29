@@ -59,12 +59,16 @@ All three are defined once in `EMAILS` in `content/company.ts`. The product site
 
 ## Open `[CONFIRM]` items
 
-- Governing courts: Noida or Delhi (`content/company.ts`).
-- Minimum age for users; the product sites say 13 (`content/company.ts`).
-- Hosting/CDN providers and server-log retention for hetuh.co (`app/privacy/page.tsx`).
-- Correspondence retention period (`app/privacy/page.tsx`).
-- No advertising SDKs or data sales in any app (`app/privacy/page.tsx`).
-- Liability cap amount, drafted as INR 1,000 (`app/terms/page.tsx`).
+None are rendered, so the production build passes. These were resolved with neutral wording rather than specifics;
+tighten them after counsel review if wanted:
+
+- Courts: "the competent courts in India". Set a seat (Noida or Delhi) in `LEGAL_DEFAULTS.courts`.
+- Minimum age: 13, matching triphetu.com and sahpath.app (`LEGAL_DEFAULTS.minimumAge`).
+- hetuh.co server logs: "kept for a limited period"; no providers or period named (`app/privacy/page.tsx`).
+- Correspondence: kept "as long as needed to handle your request"; no fixed period (`app/privacy/page.tsx`).
+- The "no advertising and no data sales" sentence was removed from the company privacy policy; add it back only if
+  true for every app (`app/privacy/page.tsx`).
+- Liability cap: limited to the amount paid, if any; no fixed INR amount (`app/terms/page.tsx`).
 
 ## Open questions (shown in review builds on product pages)
 

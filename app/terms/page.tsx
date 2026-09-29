@@ -102,8 +102,8 @@ export default function CompanyTermsPage() {
           To the fullest extent permitted by law, {OWNER.legalName}, its directors, employees, licensors and publishers will not
           be liable for any indirect, incidental, special, consequential or punitive damages, or for loss of data, profits,
           goodwill or business, arising out of or in connection with our services or these Terms. Our total liability for all
-          claims will not exceed the amount you paid us for the relevant service in the twelve months before the claim arose
-          or, if you paid nothing, INR 1,000. <T>[CONFIRM: liability cap amount]</T>
+          claims will not exceed the amount, if any, you paid us for the relevant service in the twelve months before the
+          claim arose.
         </p>
 
         <h2 id="indemnity">9. Indemnity</h2>
@@ -129,7 +129,8 @@ export default function CompanyTermsPage() {
         <h2 id="governing-law">12. Governing law and disputes</h2>
         <p>
           These Terms are governed by {LEGAL_DEFAULTS.governingLaw}.{" "}
-          <T>{`Subject to any mandatory consumer protection law, ${LEGAL_DEFAULTS.courts}, India will have exclusive jurisdiction over any dispute arising out of or relating to these Terms or our services.`}</T>
+          Subject to any mandatory consumer protection law, {LEGAL_DEFAULTS.courts} will have exclusive jurisdiction over any
+          dispute arising out of or relating to these Terms or our services.
         </p>
 
         <h2 id="apple">13. Additional terms for the Apple App Store</h2>

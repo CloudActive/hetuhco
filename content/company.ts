@@ -132,8 +132,10 @@ export const LEGAL_DEFAULTS = {
   /** Shown as "Last updated" on every legal page. ISO date. */
   lastUpdated: "2026-09-28",
   governingLaw: "the laws of India",
-  courts: "the courts at [CONFIRM: Noida / Delhi]",
-  minimumAge: "[CONFIRM: minimum age, e.g. 18] years",
+  /** Set a specific seat (e.g. "the courts at Noida, India") once decided. */
+  courts: "the competent courts in India",
+  /** Matches the product policies on triphetu.com and sahpath.app. */
+  minimumAge: "13",
   supportResponseTime: "within 2 business days",
 } as const;
 
