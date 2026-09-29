@@ -12,6 +12,9 @@
 
 html {
   color-scheme: light;
+  /* Always reserve the scrollbar's space so short pages (no scrollbar) and long pages
+     have the same width and the centred header and content never shift between pages. */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -73,6 +76,14 @@ mark.confirm {
   margin-top: 1rem;
   padding-left: 1.5rem;
   line-height: 1.75rem;
+}
+/* One comfortable reading width for running text on every page; grids, cards and tables stay full width. */
+.legal > p,
+.legal > ul,
+.legal > ol,
+.legal > dl,
+.legal > address {
+  max-width: 48rem;
 }
 .legal ul { list-style: disc outside; }
 .legal ol { list-style: decimal outside; }

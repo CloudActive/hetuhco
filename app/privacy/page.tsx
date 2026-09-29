@@ -17,7 +17,7 @@ export const metadata = pageMeta({
 
 export default function CompanyPrivacyPage() {
   return (
-    <Container className="py-10">
+    <Container className="py-12">
       <article className="legal max-w-3xl">
         <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Privacy Policy</h1>
         <p className="mt-2 text-sm text-muted">
