@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { Email } from "@/components/Email";
 import { PageHeader } from "@/components/PageHeader";
-import { EMAILS, LEGAL_DEFAULTS, OWNER } from "@/content/company";
+import { LEGAL_DEFAULTS, OWNER } from "@/content/company";
 import { PRODUCTS } from "@/content/products";
 import { legalLinksFor } from "@/lib/legal";
 import { pageMeta } from "@/lib/meta";
@@ -9,7 +10,7 @@ import { T } from "@/lib/text";
 
 export const metadata = pageMeta({
   title: "Support",
-  description: `Support for every Hetuh S4H app. Email ${EMAILS.support} or open the support page for your product.`,
+  description: "Support for every Hetuh S4H app. Email our support team or open the support page for your product.",
   path: "/support/",
 });
 
@@ -20,9 +21,9 @@ export default function CompanySupportPage() {
 
       <div className="rounded-xl border border-line bg-surface p-6">
         <h2 className="font-semibold text-ink">Email us</h2>
+        <p className="mt-2"><Email k="support" /></p>
         <p className="mt-2 text-muted">
-          Write to <a href={`mailto:${EMAILS.support}`} className="text-accent hover:underline">{EMAILS.support}</a> and tell us
-          which app you are using, the app version, your device and operating system version, and what happened.
+          Tell us which app you are using, the app version, your device and operating system version, and what happened.
         </p>
         <p className="mt-2 text-sm text-muted"><T>{`We aim to respond ${LEGAL_DEFAULTS.supportResponseTime}.`}</T></p>
       </div>
@@ -49,8 +50,8 @@ export default function CompanySupportPage() {
       <section className="legal mt-10 max-w-3xl" aria-labelledby="other">
         <h2 id="other">Other requests</h2>
         <ul>
-          <li>Privacy requests and grievances: <a href={`mailto:${EMAILS.privacy}`}>{EMAILS.privacy}</a> (see the <Link href="/privacy/">Privacy Policy</Link> for the Grievance Officer).</li>
-          <li>Legal notices, trademark and licensing: <a href={`mailto:${EMAILS.legal}`}>{EMAILS.legal}</a>.</li>
+          <li>Privacy requests and grievances: <Email k="privacy" /> (see the <Link href="/privacy/">Privacy Policy</Link> for the Grievance Officer).</li>
+          <li>Legal notices, trademark and licensing: <Email k="legal" /></li>
           <li>Postal address: {OWNER.legalName}, {OWNER.addressLines.join(", ")}.</li>
         </ul>
       </section>

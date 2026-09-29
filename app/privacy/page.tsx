@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { EMAILS, formatDate, GRIEVANCE_OFFICER, LEGAL_DEFAULTS, OWNER } from "@/content/company";
+import { Email } from "@/components/Email";
+import { formatDate, GRIEVANCE_OFFICER, LEGAL_DEFAULTS, OWNER } from "@/content/company";
 import { PRODUCTS } from "@/content/products";
 import { legalLink } from "@/lib/legal";
 import { publisherSentences } from "@/lib/publishers";
@@ -63,7 +64,7 @@ export default function CompanyPrivacyPage() {
 
         <h2 id="email">4. When you contact us</h2>
         <p>
-          When you email {EMAILS.support}, {EMAILS.privacy} or {EMAILS.legal}, we process your email address, name and the
+          When you email us at any address on our <Link href="/contact/">Contact</Link> page, we process your email address, name and the
           content of your message to respond to you and keep a record of the correspondence. We keep correspondence only for
           as long as needed to handle your request and keep a record of it, unless the law requires longer.
         </p>
@@ -80,7 +81,7 @@ export default function CompanyPrivacyPage() {
           Under the Digital Personal Data Protection Act, 2023 (&ldquo;DPDP Act&rdquo;), we process personal data on the basis
           of your consent for the specified purposes described in this policy and in the product policies, and for certain
           legitimate uses the DPDP Act permits, such as complying with the law or responding to an emergency. You may withdraw
-          consent at any time by emailing <a href={`mailto:${EMAILS.privacy}`}>{EMAILS.privacy}</a> or, for an app, by deleting your
+          consent at any time by emailing <Email k="privacy" /> or, for an app, by deleting your
           account.
         </p>
 
@@ -110,14 +111,14 @@ export default function CompanyPrivacyPage() {
           Subject to applicable law you may access, correct and update your personal data, ask for its erasure, withdraw
           consent, nominate a person to exercise your rights if you are unable to, and raise a grievance with our Grievance
           Officer. If you are not satisfied with our response you may approach the Data Protection Board of India. Email{" "}
-          <a href={`mailto:${EMAILS.privacy}`}>{EMAILS.privacy}</a> to exercise any right. We may verify your identity first.
+          <Email k="privacy" /> to exercise any right. We may verify your identity first.
         </p>
 
         <h2 id="children">11. Children</h2>
         <p>
           Our website and apps are not directed at children under {LEGAL_DEFAULTS.minimumAge}.{" "}
           We do not knowingly collect personal data from a child without verifiable parental consent as required by the DPDP
-          Act. Contact <a href={`mailto:${EMAILS.privacy}`}>{EMAILS.privacy}</a> if you believe a child has provided us with data.
+          Act. Contact <Email k="privacy" /> if you believe a child has provided us with data.
         </p>
 
         <h2 id="changes">12. Changes</h2>
@@ -129,15 +130,15 @@ export default function CompanyPrivacyPage() {
         <h2 id="grievance">13. Grievance Officer</h2>
         <dl>
           <div><dt>Name</dt><dd><T>{GRIEVANCE_OFFICER.name}</T></dd></div>
-          <div><dt>Email</dt><dd><a href={`mailto:${GRIEVANCE_OFFICER.email}`}>{GRIEVANCE_OFFICER.email}</a></dd></div>
+          <div><dt>Email</dt><dd><Email k="privacy" /></dd></div>
           <div><dt>Postal address</dt><dd>{OWNER.legalName}, {GRIEVANCE_OFFICER.addressLines.join(", ")}</dd></div>
           <div><dt>Response timeline</dt><dd><T>{`We acknowledge grievances promptly and aim to resolve them ${GRIEVANCE_OFFICER.responseTime}.`}</T></dd></div>
         </dl>
 
         <h2 id="contact">14. Contact</h2>
         <p>
-          Privacy: <a href={`mailto:${EMAILS.privacy}`}>{EMAILS.privacy}</a>. Support:{" "}
-          <a href={`mailto:${EMAILS.support}`}>{EMAILS.support}</a>. Legal: <a href={`mailto:${EMAILS.legal}`}>{EMAILS.legal}</a>.
+          Privacy: <Email k="privacy" /> Support: <Email k="support" /> Legal: <Email k="legal" />
+          <br />
           Postal address: {OWNER.legalName}, {OWNER.addressLines.join(", ")}.
         </p>
       </article>

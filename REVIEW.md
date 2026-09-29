@@ -46,16 +46,14 @@ them from the product pages, `/legal/`, `/support/` and the footer, and does not
 - Minimum age: both product policies say "not directed to children under 13". The hetuh.co company pages still carry a
   `[CONFIRM]` for minimum age; align them.
 
-## Email addresses used on hetuh.co (create these mailboxes or aliases)
+## Email addresses
 
-| Address | Used for |
-|---|---|
-| support@hetuh.co | Company support page, contact page, footer, terms |
-| privacy@hetuh.co | Company privacy policy, Grievance Officer, rights requests |
-| legal@hetuh.co | Legal notices, terms contact |
+Three addresses are used: support, privacy and legal. They are defined once in `EMAILS` in `content/company.ts`.
 
-All three are defined once in `EMAILS` in `content/company.ts`. The product sites use their own addresses
-(for example support@triphetu.com and privacy@triphetu.com).
+The site never shows them as text or mailto links. They are drawn into one PNG sprite (`public/contact.png`), and
+the `<Email k="…" />` component shows one address at a time by shifting the background position. After changing an
+address, run `python scripts/make_email_sprite.py` (needs Pillow) and commit the new PNG and
+`content/email-sprite.json`. Every build fails if an address or a mailto link appears in the exported site.
 
 ## Open `[CONFIRM]` items
 

@@ -66,7 +66,7 @@ export default function LegalIndexPage() {
           {TRADEMARKS.map((t) => (
             <li key={t.mark}>
               {t.display}: {t.jurisdiction === "India" ? "Indian" : t.jurisdiction} trademark application no. {t.applicationNo}{" "}
-              (classes {t.classes}), filed {t.filedOn}.
+              (classes {t.classes}).
             </li>
           ))}
         </ul>

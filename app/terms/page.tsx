@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { EMAILS, formatDate, LEGAL_DEFAULTS, OWNER, TRADEMARKS } from "@/content/company";
+import { Email } from "@/components/Email";
+import { formatDate, LEGAL_DEFAULTS, OWNER, TRADEMARKS } from "@/content/company";
 import { PRODUCTS } from "@/content/products";
 import { legalLink } from "@/lib/legal";
 import { publisherSentences } from "@/lib/publishers";
@@ -146,8 +147,9 @@ export default function CompanyTermsPage() {
 
         <h2 id="contact">14. Contact</h2>
         <p>
-          Legal: <a href={`mailto:${EMAILS.legal}`}>{EMAILS.legal}</a>. Support:{" "}
-          <a href={`mailto:${EMAILS.support}`}>{EMAILS.support}</a>. Postal address: {OWNER.legalName},{" "}
+          Legal: <Email k="legal" /> Support: <Email k="support" />
+          <br />
+          Postal address: {OWNER.legalName},{" "}
           {OWNER.addressLines.join(", ")}.
         </p>
       </article>

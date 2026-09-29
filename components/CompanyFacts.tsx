@@ -1,4 +1,5 @@
-import { EMAILS, OWNER, TRADEMARKS } from "@/content/company";
+import { OWNER, TRADEMARKS } from "@/content/company";
+import { Email } from "./Email";
 
 export function CompanyFacts() {
   return (
@@ -28,16 +29,17 @@ export function CompanyFacts() {
         <dd className="text-muted">
           {TRADEMARKS.map((t) => (
             <span key={t.mark} className="block">
-              {t.display}: {t.jurisdiction === "India" ? "Indian" : t.jurisdiction} trademark application no. {t.applicationNo} (classes {t.classes}), filed {t.filedOn}
+              {t.display}: {t.jurisdiction === "India" ? "Indian" : t.jurisdiction} trademark application no. {t.applicationNo} (classes {t.classes})
             </span>
-          ))}        </dd>
+          ))}
+        </dd>
       </div>
       <div>
         <dt className="font-semibold text-ink">Contact</dt>
-        <dd className="text-muted">
-          <a className="block hover:text-ink" href={`mailto:${EMAILS.legal}`}>{EMAILS.legal}</a>
-          <a className="block hover:text-ink" href={`mailto:${EMAILS.privacy}`}>{EMAILS.privacy}</a>
-          <a className="block hover:text-ink" href={`mailto:${EMAILS.support}`}>{EMAILS.support}</a>
+        <dd>
+          <span className="block"><Email k="legal" /></span>
+          <span className="block"><Email k="privacy" /></span>
+          <span className="block"><Email k="support" /></span>
         </dd>
       </div>
     </dl>

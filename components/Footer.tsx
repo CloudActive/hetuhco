@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { COPYRIGHT_LINE, EMAILS, FOOTER_IDENTITY_LINE } from "@/content/company";
+import { COPYRIGHT_LINE, FOOTER_IDENTITY_LINE } from "@/content/company";
 import { PRODUCTS } from "@/content/products";
 import { legalLinksFor, productPath } from "@/lib/legal";
 import { Container } from "./Container";
+import { Email } from "./Email";
 
 export function Footer() {
   return (
@@ -41,9 +42,9 @@ export function Footer() {
           <div>
             <h2 className="mb-3 font-semibold text-ink">Contact</h2>
             <ul className="space-y-2">
-              <li><a className="text-muted hover:text-ink" href={`mailto:${EMAILS.support}`}>{EMAILS.support}</a></li>
-              <li><a className="text-muted hover:text-ink" href={`mailto:${EMAILS.privacy}`}>{EMAILS.privacy}</a></li>
-              <li><a className="text-muted hover:text-ink" href={`mailto:${EMAILS.legal}`}>{EMAILS.legal}</a></li>
+              <li><Email k="support" /></li>
+              <li><Email k="privacy" /></li>
+              <li><Email k="legal" /></li>
             </ul>
           </div>
         </div>

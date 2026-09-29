@@ -1,0 +1,20 @@
+{
+  "src": "/contact.png?v=3af0042a25",
+  "width": 126,
+  "height": 66,
+  "rowHeight": 22,
+  "items": {
+    "legal": {
+      "y": 0,
+      "w": 105
+    },
+    "privacy": {
+      "y": 22,
+      "w": 120
+    },
+    "support": {
+      "y": 44,
+      "w": 126
+    }
+  }
+}

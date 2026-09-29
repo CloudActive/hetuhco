@@ -14,7 +14,11 @@ pnpm build            # production export to out/ (fails while any [CONFIRM] mar
 pnpm build:review     # review export with highlighted [CONFIRM] markers
 pnpm serve            # serve out/ locally
 pnpm confirms         # list every [CONFIRM] item in the source
+python scripts/make_email_sprite.py   # regenerate the email sprite after changing EMAILS (needs Pillow)
 ```
+
+Email addresses are shown only as an image sprite (`public/contact.png`) through `components/Email.tsx`, never as
+text, so crawlers cannot scrape them. Builds fail if an address appears in the exported site.
 
 ## Where things live
 

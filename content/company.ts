@@ -9,7 +9,11 @@
 export const SITE_URL = "https://hetuh.co";
 export const SITE_NAME = "Hetuh S4H";
 
-/** All email addresses used on the site. Create these mailboxes or aliases. */
+/**
+ * Email addresses shown on the site. Never render these as text or mailto links: pages show them through the
+ * <Email k="…" /> sprite so crawlers cannot scrape them. After changing an address, regenerate the sprite with
+ * `python scripts/make_email_sprite.py`. The production build fails if an address appears in the HTML.
+ */
 export const EMAILS = {
   legal: "legal@hetuh.co",
   privacy: "privacy@hetuh.co",
@@ -97,7 +101,6 @@ export interface Trademark {
   display: string;
   applicationNo: string;
   classes: string;
-  filedOn: string;
   jurisdiction: string;
 }
 
@@ -111,7 +114,6 @@ export const TRADEMARKS: Trademark[] = [
     display: "triphetu™",
     applicationNo: "8026781",
     classes: "9 and 42",
-    filedOn: "27 September 2026",
     jurisdiction: "India",
   },
 ];
