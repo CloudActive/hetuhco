@@ -55,7 +55,7 @@ export const PRODUCTS: Product[] = [
       "triphetu is a group trip planner. Plan trips together, share itineraries, coordinate the group and split expenses in one place. Everyone on the trip sees the same plan, so nothing gets lost in chat threads.",
     status: "coming soon",
     website: "https://triphetu.com",
-    iconPath: "/products/triphetu.svg",
+    iconPath: "/products/triphetu.png",
     // Only the Google Play listing is shown for now. Do not add other store entries without the owner's go-ahead.
     platforms: [{ store: "Google Play", publisher: "cloudactive", packageId: "com.triphetu.app", storeUrl: null }],
     legalLinks: {
@@ -78,7 +78,7 @@ export const PRODUCTS: Product[] = [
       "SahPath is a tool for synchronised group recitation. One person leads a reading and every other participant's screen follows in real time.",
     status: "in review",
     website: "https://sahpath.app",
-    iconPath: "/products/sahpath.svg",
+    iconPath: "/products/sahpath.png",
     // Google Play listing is being transferred to Hetuh LLC (from Cloudactive Labs), matching sahpath.app/legal.
     platforms: [{ store: "Google Play", publisher: "hetuhLlc", storeUrl: null }],
     legalLinks: {
