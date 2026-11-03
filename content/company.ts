@@ -70,7 +70,7 @@ export const CLOUDACTIVE: Company = {
   ],
   country: "India",
   relationship: "an affiliated company under common ownership with Hetuh S4H Private Limited",
-  role: "licensed developer and publisher, under licence from Hetuh S4H Private Limited",
+  role: "licensed developer of our apps, under licence from Hetuh S4H Private Limited",
 };
 
 export const HETUH_LLC: Company = {
@@ -85,7 +85,7 @@ export const HETUH_LLC: Company = {
   registration: "Texas limited liability company, file number 805742743",
   relationship:
     "an independent company registered in Texas, United States. It is not owned or controlled by Hetuh S4H Private Limited, and Hetuh S4H Private Limited is not owned or controlled by it",
-  role: "licensed publisher, under licence from Hetuh S4H Private Limited",
+  role: "publisher of our apps on Google Play and the Apple App Store, under licence from Hetuh S4H Private Limited",
 };
 
 export const COMPANIES: Record<PublisherKey, Company> = {

@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { StatusBadge } from "@/components/StatusBadge";
-import { StoreLinks } from "@/components/StoreLinks";
-import { COMPANIES, OWNER } from "@/content/company";
+import { DownloadButton } from "@/components/DownloadButton";
+import { CLOUDACTIVE, COMPANIES, OWNER } from "@/content/company";
 import { getProduct, PRODUCTS } from "@/content/products";
 import { legalLinksFor } from "@/lib/legal";
 import { pageMeta } from "@/lib/meta";
@@ -52,17 +52,24 @@ export default async function ProductPage({ params }: { params: Params }) {
 
       <div className="legal mt-8 max-w-3xl">
         <p><T>{product.description}</T></p>
-        {product.status !== "live" && (
+        {product.status === "live" && product.downloadUrl ? (
+          <div className="mt-6">
+            <DownloadButton product={product} />
+            <p className="mt-2 text-sm text-muted">
+              Opens the download page on {site}, with links to Google Play and the App Store.
+            </p>
+          </div>
+        ) : (
           <p className="text-muted">
-            {product.displayName} is{" "}
-            {product.status === "in review" ? "currently under review on the stores" : "not publicly released yet"}. Store
-            links will appear here once the app is available.
+            {product.displayName} is not yet available on the app stores. Download links will appear here once it is.
           </p>
         )}
-        <div className="mt-6"><StoreLinks product={product} /></div>
 
-        <h2>Ownership and publishers</h2>
-        <p>{product.displayName} is owned by {OWNER.legalName}.</p>
+        <h2>Ownership, developer and publisher</h2>
+        <p>
+          {product.displayName} is owned by {OWNER.legalName} and developed by {CLOUDACTIVE.legalName} under licence from
+          Hetuh S4H. It is published on the stores by:
+        </p>
         <div className="table-wrap">
           <table>
             <thead>

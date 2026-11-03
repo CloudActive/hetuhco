@@ -40,21 +40,21 @@ export default function AboutPage() {
       </section>
 
       <section aria-labelledby="publishing" className="legal">
-        <h2 id="publishing">How our products are published</h2>
+        <h2 id="publishing">How our products are developed and published</h2>
         <p>
-          Hetuh S4H does not publish apps on the stores itself. Each app is published under licence from Hetuh S4H by the
-          company named on that store listing.
+          Hetuh S4H owns the products but does not build or publish them itself. Each is developed and published under
+          licence from Hetuh S4H by the companies below.
         </p>
 
-        <h3>{CLOUDACTIVE.legalName}</h3>
+        <h3>Developer: {CLOUDACTIVE.legalName}</h3>
         <p>
-          {CLOUDACTIVE.legalName} (CIN {CLOUDACTIVE.cin}) is the licensed developer of our apps. Hetuh S4H and Cloudactive
-          Labs are affiliated companies under common ownership.
+          {CLOUDACTIVE.legalName} (CIN {CLOUDACTIVE.cin}) is the licensed developer of our apps. It does not publish or
+          distribute them. Hetuh S4H and Cloudactive Labs are affiliated companies under common ownership.
           {listingsText("cloudactive") && <> It publishes {listingsText("cloudactive")} under licence from Hetuh S4H.</>}
         </p>
         <p>Registered office: {CLOUDACTIVE.addressLines.join(", ")}.</p>
 
-        <h3>{HETUH_LLC.legalName}</h3>
+        <h3>Publisher: {HETUH_LLC.legalName}</h3>
         <p>
           {HETUH_LLC.legalName} is {HETUH_LLC.relationship}.
           {listingsText("hetuhLlc") && <> It publishes {listingsText("hetuhLlc")} under licence from Hetuh S4H.</>} Its own

@@ -15,10 +15,14 @@ function storeLabel(store: string): string {
  * e.g. "<Product A> on Google Play and <Product B> on the Apple App Store". Empty if nothing.
  */
 export function listingsText(key: PublisherKey): string {
-  const items = PRODUCTS.flatMap((p) =>
-    p.platforms.filter((pl) => pl.publisher === key).map((pl) => `${p.displayName} on ${storeLabel(pl.store)}`),
-  );
-  return joinList(items);
+  // Group products that this publisher lists on the same set of stores, keeping first-seen order.
+  const groups = new Map<string, string[]>();
+  for (const p of PRODUCTS) {
+    const stores = joinList(p.platforms.filter((pl) => pl.publisher === key).map((pl) => storeLabel(pl.store)));
+    if (!stores) continue;
+    groups.set(stores, [...(groups.get(stores) ?? []), p.displayName]);
+  }
+  return joinList([...groups].map(([stores, names]) => `${joinList(names)} on ${stores}`));
 }
 
 /** Short description of each publisher's relationship to Hetuh S4H, per the wording rules. */
@@ -27,16 +31,22 @@ const INTRO: Record<"cloudactive" | "hetuhLlc", string> = {
   hetuhLlc: `${HETUH_LLC.legalName}, an independent company registered in Texas, United States,`,
 };
 
+/** Developer sentence: Cloudactive Labs develops the apps but does not publish or distribute them. */
+export function developerSentence(): string {
+  return `${INTRO.cloudactive} develops our apps under licence from ${OWNER.shortName}.`;
+}
+
 /**
- * One sentence per publisher, e.g.
+ * The developer sentence, then one sentence per publisher, e.g.
  * "<Publisher>, <relationship>, publishes <Product> on <Store> under licence from Hetuh S4H."
  * Publishers with no listings are omitted.
  */
 export function publisherSentences(): string[] {
-  return (["cloudactive", "hetuhLlc"] as const).flatMap((key) => {
+  const publishing = (["cloudactive", "hetuhLlc"] as const).flatMap((key) => {
     const listings = listingsText(key);
     return listings ? [`${INTRO[key]} publishes ${listings} under licence from ${OWNER.shortName}.`] : [];
   });
+  return [developerSentence(), ...publishing];
 }
 
 export function publishers(): Company[] {

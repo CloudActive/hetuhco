@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Product } from "@/content/products";
 import { productPath } from "@/lib/legal";
 import { T } from "@/lib/text";
+import { DownloadButton } from "./DownloadButton";
 import { StatusBadge } from "./StatusBadge";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -16,11 +17,12 @@ export function ProductCard({ product }: { product: Product }) {
           <StatusBadge status={product.status} />
         </div>
         {product.tagline && <p className="mt-1 text-muted"><T>{product.tagline}</T></p>}
-        <p className="mt-3 text-sm">
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+          <DownloadButton product={product} size="sm" />
           <Link href={productPath(product)} className="font-medium text-accent hover:underline">
             About {product.displayName}
           </Link>
-        </p>
+        </div>
       </div>
     </article>
   );

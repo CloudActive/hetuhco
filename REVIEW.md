@@ -35,13 +35,12 @@ them from the product pages, `/legal/`, `/support/` and the footer, and does not
 
 - **triphetu.com/child-safety** redirects to app.triphetu.com/child-safety, which returns 404. Google Play needs a public
   child safety standards page for apps with social features.
-- **triphetu.com/privacy** names Hetuh S4H as owner and Cloudactive Labs as Android publisher. It does not name a
-  Grievance Officer.
-- **triphetu on hetuh.co** shows only its Google Play listing (Cloudactive Labs). No other store entry is shown for it
-  until the owner says otherwise.
-- **SahPath on Google Play** is being transferred from Cloudactive Labs to Hetuh LLC. hetuh.co and sahpath.app/legal
-  already name Hetuh LLC (Texas LLC, file number 805742743); the Play listing shows Cloudactive Labs until the transfer
-  completes.
+- **triphetu.com/privacy** and **triphetu.com/legal** name Cloudactive Labs as the Android publisher. Since 2 Nov 2026
+  Hetuh LLC publishes triphetu on both stores and Cloudactive Labs is the developer only; update those pages. The
+  privacy policy also does not name a Grievance Officer.
+- **Publishers:** since 2 Nov 2026 Hetuh LLC publishes both apps on Google Play and the App Store. Cloudactive Labs
+  is the licensed developer only and does not publish or distribute them. Hetuh LLC is a Texas LLC, file number
+  805742743.
 - **sahpath.app/terms** and **sahpath.app/child-safety** redirect to a login page, so they are not public and are not linked.
 - Minimum age: both product policies say "not directed to children under 13". The hetuh.co company pages still carry a
   `[CONFIRM]` for minimum age; align them.
@@ -70,7 +69,6 @@ tighten them after counsel review if wanted:
 
 ## Open questions (shown in review builds on product pages)
 
-- SahPath: Android package ID; whether an iOS version exists, its status and bundle ID.
 
 ## Confirmed facts
 
@@ -82,3 +80,13 @@ Hetuh LLC is a Texas limited liability company, file number 805742743 (from sahp
 ## Not changed
 
 Nothing on the product websites was touched.
+
+## Store status (2 Nov 2026)
+
+Both apps are live. hetuh.co shows "Available now" and a single Download button per product that opens the
+product's own download page (`downloadUrl` in `content/products.ts`), which lists Google Play and the App Store:
+
+| Product | Download page | Store IDs shown on hetuh.co |
+|---|---|---|
+| triphetu | https://triphetu.com/download | Google Play and App Store `com.triphetu.app`; App Store seller HETUH LLC |
+| SahPath | https://sahpath.app/download | Google Play and App Store `com.sahpath.app`; App Store seller HETUH LLC |

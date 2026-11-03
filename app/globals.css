@@ -93,6 +93,11 @@ mark.confirm {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+/* Buttons inside text blocks keep their own look. */
+.legal a.button {
+  color: #fff;
+  text-decoration: none;
+}
 .legal .table-wrap {
   overflow-x: auto;
   margin-top: 1rem;

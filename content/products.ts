@@ -17,8 +17,6 @@ export interface Platform {
   publisher: PublisherKey;
   packageId?: string;
   bundleId?: string;
-  /** Only set once the listing is public. Badges and links are hidden while null. */
-  storeUrl: string | null;
 }
 
 export type LegalKey = "privacy" | "terms" | "support" | "delete-account" | "child-safety" | "ownership";
@@ -34,6 +32,11 @@ export interface Product {
   description: string;
   status: ProductStatus;
   website: string;
+  /**
+   * The product's own download page, which links to every store listing. hetuh.co sends visitors there
+   * instead of linking each store directly. Shown only when status is "live".
+   */
+  downloadUrl?: string;
   iconPath: string;
   platforms: Platform[];
   /**
@@ -53,11 +56,15 @@ export const PRODUCTS: Product[] = [
     tagline: "Plan trips together.",
     description:
       "triphetu is a group trip planner. Plan trips together, share itineraries, coordinate the group and split expenses in one place. Everyone on the trip sees the same plan, so nothing gets lost in chat threads.",
-    status: "coming soon",
+    status: "live",
     website: "https://triphetu.com",
+    downloadUrl: "https://triphetu.com/download",
     iconPath: "/products/triphetu.png",
-    // Only the Google Play listing is shown for now. Do not add other store entries without the owner's go-ahead.
-    platforms: [{ store: "Google Play", publisher: "cloudactive", packageId: "com.triphetu.app", storeUrl: null }],
+    // Both listings are published by Hetuh LLC (App Store seller HETUH LLC, checked 2 Nov 2026).
+    platforms: [
+      { store: "Google Play", publisher: "hetuhLlc", packageId: "com.triphetu.app" },
+      { store: "App Store", publisher: "hetuhLlc", bundleId: "com.triphetu.app" },
+    ],
     legalLinks: {
       privacy: "https://triphetu.com/privacy",
       terms: "https://triphetu.com/terms",
@@ -68,6 +75,7 @@ export const PRODUCTS: Product[] = [
     openQuestions: [
       "triphetu.com/child-safety redirects to app.triphetu.com/child-safety, which returns 404. Google Play needs a public child safety standards page for apps with social features. Add it to legalLinks once it loads.",
       "triphetu.com/privacy does not name a Grievance Officer (hetuh.co names Suraj Singh).",
+      "triphetu.com/privacy and triphetu.com/legal still name Cloudactive Labs as the Android publisher. Update them to Hetuh LLC as publisher and Cloudactive Labs as developer.",
     ],
   },
   {
@@ -76,11 +84,15 @@ export const PRODUCTS: Product[] = [
     displayName: "SahPath",
     description:
       "SahPath is a tool for synchronised group recitation. One person leads a reading and every other participant's screen follows in real time.",
-    status: "in review",
+    status: "live",
     website: "https://sahpath.app",
+    downloadUrl: "https://sahpath.app/download",
     iconPath: "/products/sahpath.png",
-    // Google Play listing is being transferred to Hetuh LLC (from Cloudactive Labs), matching sahpath.app/legal.
-    platforms: [{ store: "Google Play", publisher: "hetuhLlc", storeUrl: null }],
+    // Both listings are published by Hetuh LLC (App Store seller HETUH LLC, checked 2 Nov 2026).
+    platforms: [
+      { store: "Google Play", publisher: "hetuhLlc", packageId: "com.sahpath.app" },
+      { store: "App Store", publisher: "hetuhLlc", bundleId: "com.sahpath.app" },
+    ],
     legalLinks: {
       privacy: "https://sahpath.app/privacy",
       support: "https://sahpath.app/support",
@@ -88,10 +100,7 @@ export const PRODUCTS: Product[] = [
       ownership: "https://sahpath.app/legal",
     },
     openQuestions: [
-      "Google Play transfer from Cloudactive Labs to Hetuh LLC is in progress. hetuh.co and sahpath.app already name Hetuh LLC; the Play listing shows Cloudactive Labs until the transfer completes.",
       "sahpath.app/terms and sahpath.app/child-safety redirect to a login page. Store reviewers need them public; they are not linked from hetuh.co until they are.",
-      "Android package ID.",
-      "iOS: sahpath.app/privacy mentions the App Store. Is there an iOS version, its status and bundle ID?",
     ],
   },
 ];
@@ -105,7 +114,7 @@ export function isLive(p: Product): boolean {
 }
 
 export const STATUS_LABEL: Record<ProductStatus, string> = {
-  live: "Live",
+  live: "Available now",
   "in review": "In review",
   "coming soon": "Coming soon",
 };
